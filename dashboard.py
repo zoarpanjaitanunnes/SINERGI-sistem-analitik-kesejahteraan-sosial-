@@ -51,7 +51,7 @@ with tab1:
     
     @st.cache_data
     def load_data_makro():
-        df = pd.read_csv(r'D:\MSC\apk\Klasifikasi Tingkat Kemiskinan di Indonesia.csv', sep=';')
+        df = pd.read_csv(r'Klasifikasi Tingkat Kemiskinan di Indonesia.csv', sep=';')
         for col in df.columns:
             if col not in ['Provinsi', 'Kab/Kota']:
                 df[col] = df[col].astype(str).str.replace(',', '.', regex=False).str.strip()
