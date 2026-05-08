@@ -1,0 +1,201 @@
+No,Nama,Tempat Tinggal,Status Pekerjaan,Penghasilan Tetap,Konsumsi Pangan,Pengeluaran Perbulan,% Pengeluaran Pangan,Pangan > 50% Pengeluaran,Beli Pakaian Setahun,Jenis Lantai,Jenis Dinding,Sanitasi,Listrik (VA)
+1,Budi Santoso,Menumpang,Pemulung,Tidak,Khawatir Tidak Makan,Rp 1.291.971,65%,Ya,Tidak,Plesteran,Papan,Tidak Ada,450
+2,Siti Rahayu,Milik Sendiri,PNS,Ya,Cukup,Rp 6.583.153,28%,Tidak,Ya,Parquet,Tembok,Sendiri,2200
+3,Ahmad Fauzi,Kontrak/Sewa,Buruh Pabrik,Ya,Cukup,Rp 2.536.685,55%,Ya,Ya,Plesteran,Tembok,Sendiri,900
+4,Dewi Lestari,Milik Sendiri,Petani,Ya,Cukup,Rp 2.948.685,40%,Tidak,Tidak,Keramik,Tembok,Sendiri,900
+5,Eko Prasetyo,Menumpang,Pemulung,Tidak,Pernah Tidak Makan,Rp 1.250.020,75%,Ya,Tidak,Tanah,Bambu,Komunitas,Bukan Listrik
+6,Fitri Handayani,Menumpang,Tidak Bekerja,Tidak,Pernah Tidak Makan,Rp 1.329.957,62%,Ya,Tidak,Plesteran,Kardus,Tidak Ada,450
+7,Gunawan Wibowo,Menumpang,Pedagang Kecil,Tidak,Khawatir Tidak Makan,Rp 565.726,80%,Ya,Tidak,Tanah,Bambu,Tidak Ada,450
+8,Hesti Kurniawati,Milik Sendiri,Wiraswasta,Ya,Cukup,Rp 6.110.910,17%,Tidak,Ya,Parquet,Tembok,Sendiri,1300
+9,Irfan Hakim,Kontrak/Sewa,Pedagang,Ya,Cukup,Rp 3.083.593,36%,Tidak,Ya,Keramik,Papan,Sendiri,900
+10,Joko Susilo,Milik Sendiri,Pedagang,Tidak,Kadang Khawatir,Rp 2.164.076,41%,Tidak,Ya,Keramik,Tembok,Sendiri,1300
+11,Kartini Susilo,Menumpang,Pemulung,Tidak,Pernah Tidak Makan,Rp 532.097,61%,Ya,Tidak,Tanah,Papan,Tidak Ada,Bukan Listrik
+12,Lutfi Arisandi,Milik Sendiri,Wiraswasta,Ya,Cukup,Rp 7.979.125,31%,Tidak,Ya,Keramik,Tembok,Sendiri,2200
+13,Mira Agustina,Milik Sendiri,Wiraswasta,Ya,Cukup,Rp 3.961.243,19%,Tidak,Ya,Parquet,Tembok,Sendiri,2200
+14,Nugroho Saputra,Tidak Punya,Tidak Bekerja,Tidak,Pernah Tidak Makan,Rp 1.471.525,72%,Ya,Tidak,Tanah,Papan,Komunitas,Bukan Listrik
+15,Okta Fitriani,Tidak Punya,Buruh Tani,Tidak,Khawatir Tidak Makan,Rp 1.370.045,78%,Ya,Tidak,Plesteran,Bambu,Tidak Ada,Bukan Listrik
+16,Pandu Wijaya,Tidak Punya,Tidak Bekerja,Tidak,Pernah Tidak Makan,Rp 894.366,68%,Ya,Tidak,Plesteran,Bambu,Komunitas,450
+17,Qori Nabila,Tidak Punya,Buruh Tani,Tidak,Khawatir Tidak Makan,Rp 676.615,72%,Ya,Tidak,Tanah,Kardus,Komunitas,450
+18,Rudi Hermawan,Kontrak/Sewa,Petani,Ya,Cukup,Rp 3.404.050,39%,Tidak,Ya,Plesteran,Papan,Komunitas,900
+19,Sri Mulyani,Kontrak/Sewa,Buruh Pabrik,Ya,Cukup,Rp 3.239.183,55%,Ya,Ya,Plesteran,Tembok,Komunitas,900
+20,Teguh Santoso,Menumpang,Buruh Tani,Tidak,Pernah Tidak Makan,Rp 1.220.777,78%,Ya,Tidak,Tanah,Seng,Komunitas,Bukan Listrik
+21,Umar Basuki,Milik Sendiri,Petani,Tidak,Kadang Khawatir,Rp 2.243.583,54%,Ya,Ya,Plesteran,Tembok,Sendiri,900
+22,Vina Marlina,Menumpang,Pemulung,Tidak,Khawatir Tidak Makan,Rp 1.004.999,69%,Ya,Tidak,Tanah,Bambu,Tidak Ada,450
+23,Wahyu Hidayat,Tidak Punya,Buruh Tani,Tidak,Khawatir Tidak Makan,Rp 1.117.296,67%,Ya,Tidak,Tanah,Papan,Tidak Ada,Bukan Listrik
+24,Xenia Putri,Menumpang,Buruh Tani,Tidak,Khawatir Tidak Makan,Rp 657.164,70%,Ya,Tidak,Plesteran,Seng,Komunitas,Bukan Listrik
+25,Yusuf Maulana,Milik Sendiri,Buruh Pabrik,Tidak,Cukup,Rp 2.369.474,50%,Tidak,Ya,Plesteran,Tembok,Sendiri,900
+26,Zahra Amelia,Milik Sendiri,Guru,Ya,Cukup,Rp 4.175.510,27%,Tidak,Ya,Granit,Tembok,Sendiri,1300
+27,Agus Salim,Menumpang,Tidak Bekerja,Tidak,Khawatir Tidak Makan,Rp 678.031,84%,Ya,Tidak,Tanah,Seng,Tidak Ada,Bukan Listrik
+28,Baiq Nurjanah,Kontrak/Sewa,Ojek Online,Ya,Kadang Khawatir,Rp 1.551.934,54%,Ya,Ya,Keramik,Tembok,Komunitas,900
+29,Candra Irawan,Kontrak/Sewa,Ojek Online,Tidak,Kadang Khawatir,Rp 2.287.494,47%,Tidak,Tidak,Keramik,Tembok,Komunitas,1300
+30,Dian Permata,Menumpang,Pemulung,Tidak,Pernah Tidak Makan,Rp 1.227.627,68%,Ya,Tidak,Plesteran,Papan,Tidak Ada,Bukan Listrik
+31,Endang Sulistyo,Kontrak/Sewa,Pedagang,Ya,Kadang Khawatir,Rp 2.017.313,39%,Tidak,Ya,Plesteran,Tembok,Sendiri,1300
+32,Fajar Nugroho,Tidak Punya,Pemulung,Tidak,Khawatir Tidak Makan,Rp 1.377.699,63%,Ya,Tidak,Tanah,Bambu,Komunitas,450
+33,Galih Pratama,Menumpang,Buruh Tani,Tidak,Pernah Tidak Makan,Rp 1.039.773,62%,Ya,Tidak,Tanah,Papan,Komunitas,450
+34,Hana Safitri,Milik Sendiri,Guru,Ya,Cukup,Rp 4.954.908,23%,Tidak,Ya,Granit,Tembok,Sendiri,2200
+35,Iqbal Firdaus,Milik Sendiri,Guru,Ya,Cukup,Rp 5.887.312,15%,Tidak,Ya,Keramik,Tembok,Sendiri,2200
+36,Julia Rahmawati,Milik Sendiri,Guru,Ya,Cukup,Rp 4.321.052,29%,Tidak,Ya,Granit,Tembok,Sendiri,2200
+37,Kukuh Prasetya,Menumpang,Tidak Bekerja,Tidak,Pernah Tidak Makan,Rp 923.570,79%,Ya,Tidak,Tanah,Bambu,Tidak Ada,Bukan Listrik
+38,Lina Marliana,Menumpang,Buruh Tani,Tidak,Khawatir Tidak Makan,Rp 650.159,82%,Ya,Tidak,Tanah,Bambu,Komunitas,450
+39,Maman Suryadi,Milik Sendiri,Ojek Online,Ya,Cukup,Rp 3.063.299,42%,Tidak,Ya,Keramik,Papan,Sendiri,1300
+40,Nanda Kusuma,Kontrak/Sewa,Buruh Pabrik,Ya,Cukup,Rp 2.542.892,50%,Tidak,Ya,Keramik,Tembok,Sendiri,1300
+41,Oki Setiawan,Menumpang,Buruh Tani,Tidak,Pernah Tidak Makan,Rp 1.344.573,77%,Ya,Tidak,Tanah,Bambu,Tidak Ada,450
+42,Putri Cahyani,Milik Sendiri,Petani,Ya,Cukup,Rp 1.635.230,59%,Ya,Tidak,Keramik,Tembok,Sendiri,900
+43,Rizky Aditya,Tidak Punya,Pedagang Kecil,Tidak,Pernah Tidak Makan,Rp 774.907,76%,Ya,Tidak,Tanah,Seng,Komunitas,450
+44,Sari Dewanti,Milik Sendiri,PNS,Ya,Cukup,Rp 3.663.273,33%,Tidak,Ya,Keramik,Tembok,Sendiri,2200
+45,Tono Basuki,Tidak Punya,Pemulung,Tidak,Pernah Tidak Makan,Rp 1.343.523,60%,Ya,Tidak,Plesteran,Papan,Tidak Ada,Bukan Listrik
+46,Umi Kulsum,Kontrak/Sewa,Pedagang,Ya,Kadang Khawatir,Rp 2.187.409,46%,Tidak,Tidak,Keramik,Papan,Sendiri,900
+47,Vicky Prasetyo,Menumpang,Pemulung,Tidak,Khawatir Tidak Makan,Rp 1.326.196,73%,Ya,Tidak,Plesteran,Bambu,Tidak Ada,Bukan Listrik
+48,Wawan Kurniawan,Milik Sendiri,Pedagang,Tidak,Cukup,Rp 2.280.722,36%,Tidak,Ya,Keramik,Tembok,Komunitas,900
+49,Yanti Fitriani,Kontrak/Sewa,Buruh Pabrik,Tidak,Cukup,Rp 2.765.040,44%,Tidak,Tidak,Plesteran,Papan,Sendiri,900
+50,Zaenal Abidin,Tidak Punya,Pemulung,Tidak,Pernah Tidak Makan,Rp 1.271.954,74%,Ya,Tidak,Tanah,Bambu,Tidak Ada,Bukan Listrik
+51,Anwar Sanusi,Milik Sendiri,Guru,Ya,Cukup,Rp 5.131.107,22%,Tidak,Ya,Parquet,Tembok,Sendiri,2200
+52,Bintang Ramadhan,Milik Sendiri,Guru,Ya,Cukup,Rp 5.450.367,32%,Tidak,Ya,Parquet,Tembok,Sendiri,1300
+53,Cici Paramitha,Milik Sendiri,PNS,Ya,Cukup,Rp 7.650.276,32%,Tidak,Ya,Keramik,Tembok,Sendiri,1300
+54,Dedi Suryanto,Milik Sendiri,PNS,Ya,Cukup,Rp 5.745.131,28%,Tidak,Ya,Parquet,Tembok,Sendiri,2200
+55,Ema Purnama,Kontrak/Sewa,Buruh Pabrik,Ya,Cukup,Rp 2.722.869,49%,Tidak,Ya,Plesteran,Tembok,Komunitas,1300
+56,Fenny Oktavia,Milik Sendiri,Guru,Ya,Cukup,Rp 4.414.032,17%,Tidak,Ya,Keramik,Tembok,Sendiri,1300
+57,Ganda Wijaya,Menumpang,Buruh Tani,Tidak,Pernah Tidak Makan,Rp 1.315.131,82%,Ya,Tidak,Tanah,Seng,Tidak Ada,Bukan Listrik
+58,Hamid Rusydi,Tidak Punya,Pemulung,Tidak,Khawatir Tidak Makan,Rp 1.371.149,70%,Ya,Tidak,Tanah,Bambu,Tidak Ada,450
+59,Indah Permatasari,Tidak Punya,Tidak Bekerja,Tidak,Khawatir Tidak Makan,Rp 1.165.627,69%,Ya,Tidak,Tanah,Seng,Tidak Ada,450
+60,Jafar Sidik,Tidak Punya,Tidak Bekerja,Tidak,Khawatir Tidak Makan,Rp 1.132.387,69%,Ya,Tidak,Plesteran,Papan,Tidak Ada,450
+61,Kirana Sari,Menumpang,Pedagang Kecil,Tidak,Khawatir Tidak Makan,Rp 523.275,78%,Ya,Tidak,Tanah,Bambu,Komunitas,450
+62,Lukman Hakim,Tidak Punya,Pemulung,Tidak,Khawatir Tidak Makan,Rp 765.956,84%,Ya,Tidak,Tanah,Bambu,Tidak Ada,Bukan Listrik
+63,Maya Anggraini,Milik Sendiri,Guru,Ya,Cukup,Rp 7.881.514,23%,Tidak,Ya,Keramik,Tembok,Sendiri,2200
+64,Niko Prasetyo,Menumpang,Pedagang Kecil,Tidak,Khawatir Tidak Makan,Rp 1.040.677,61%,Ya,Tidak,Tanah,Kardus,Tidak Ada,450
+65,Oneng Saribanon,Menumpang,Buruh Tani,Tidak,Khawatir Tidak Makan,Rp 1.259.224,61%,Ya,Tidak,Tanah,Papan,Tidak Ada,450
+66,Puji Lestari,Milik Sendiri,Pedagang,Tidak,Cukup,Rp 3.249.523,51%,Ya,Ya,Keramik,Tembok,Komunitas,900
+67,Qomar Fuad,Menumpang,Tidak Bekerja,Tidak,Khawatir Tidak Makan,Rp 782.272,65%,Ya,Tidak,Tanah,Bambu,Tidak Ada,450
+68,Rachmat Hidayat,Milik Sendiri,PNS,Ya,Cukup,Rp 7.699.591,16%,Tidak,Ya,Keramik,Tembok,Sendiri,1300
+69,Suci Ramadhani,Tidak Punya,Tidak Bekerja,Tidak,Khawatir Tidak Makan,Rp 1.104.055,65%,Ya,Tidak,Tanah,Bambu,Komunitas,450
+70,Taufik Ismail,Milik Sendiri,Guru,Ya,Cukup,Rp 4.853.649,28%,Tidak,Ya,Granit,Tembok,Sendiri,2200
+71,Ulfa Safitri,Milik Sendiri,Wiraswasta,Ya,Cukup,Rp 4.884.418,17%,Tidak,Ya,Granit,Tembok,Sendiri,2200
+72,Vino Bastian,Tidak Punya,Tidak Bekerja,Tidak,Pernah Tidak Makan,Rp 935.048,64%,Ya,Tidak,Tanah,Bambu,Tidak Ada,450
+73,Windi Astuti,Menumpang,Buruh Tani,Tidak,Khawatir Tidak Makan,Rp 648.056,72%,Ya,Tidak,Tanah,Papan,Tidak Ada,450
+74,Yahya Muhaimin,Milik Sendiri,Guru,Ya,Cukup,Rp 6.062.469,15%,Tidak,Ya,Granit,Tembok,Sendiri,2200
+75,Zulfan Arief,Milik Sendiri,Buruh Pabrik,Ya,Cukup,Rp 2.414.228,42%,Tidak,Ya,Keramik,Tembok,Komunitas,1300
+76,Arif Budiman,Kontrak/Sewa,Ojek Online,Tidak,Kadang Khawatir,Rp 2.607.955,41%,Tidak,Ya,Keramik,Tembok,Sendiri,1300
+77,Bella Saphira,Milik Sendiri,PNS,Ya,Cukup,Rp 4.914.397,18%,Tidak,Ya,Parquet,Tembok,Sendiri,2200
+78,Catur Pamungkas,Menumpang,Tidak Bekerja,Tidak,Pernah Tidak Makan,Rp 948.396,74%,Ya,Tidak,Plesteran,Bambu,Tidak Ada,450
+79,Dinda Hauw,Tidak Punya,Pemulung,Tidak,Pernah Tidak Makan,Rp 1.159.116,61%,Ya,Tidak,Tanah,Papan,Komunitas,450
+80,Erwin Gutawa,Menumpang,Pedagang Kecil,Tidak,Pernah Tidak Makan,Rp 514.153,67%,Ya,Tidak,Tanah,Papan,Tidak Ada,450
+81,Farida Nurhan,Milik Sendiri,Guru,Ya,Cukup,Rp 4.755.564,22%,Tidak,Ya,Parquet,Tembok,Sendiri,2200
+82,Gilang Dirga,Milik Sendiri,Ojek Online,Tidak,Cukup,Rp 2.760.527,38%,Tidak,Tidak,Plesteran,Tembok,Sendiri,900
+83,Hendra Gunawan,Tidak Punya,Pemulung,Tidak,Khawatir Tidak Makan,Rp 675.399,68%,Ya,Tidak,Plesteran,Papan,Tidak Ada,450
+84,Ika Natassa,Menumpang,Buruh Tani,Tidak,Khawatir Tidak Makan,Rp 994.592,81%,Ya,Tidak,Tanah,Papan,Tidak Ada,Bukan Listrik
+85,Jimmy Manopo,Menumpang,Pedagang Kecil,Tidak,Khawatir Tidak Makan,Rp 1.384.377,68%,Ya,Tidak,Tanah,Papan,Komunitas,450
+86,Kiki Fatmala,Menumpang,Pemulung,Tidak,Khawatir Tidak Makan,Rp 798.512,70%,Ya,Tidak,Tanah,Kardus,Tidak Ada,450
+87,Lesty Kejora,Milik Sendiri,Buruh Pabrik,Tidak,Cukup,Rp 1.594.270,45%,Tidak,Ya,Plesteran,Tembok,Komunitas,1300
+88,Mukhlis Ramlan,Milik Sendiri,Pedagang,Tidak,Cukup,Rp 3.135.687,51%,Ya,Ya,Plesteran,Tembok,Sendiri,1300
+89,Nita Thalia,Milik Sendiri,Wiraswasta,Ya,Cukup,Rp 3.764.223,31%,Tidak,Ya,Keramik,Tembok,Sendiri,2200
+90,Oscar Lawalata,Milik Sendiri,Pedagang,Ya,Kadang Khawatir,Rp 2.805.585,36%,Tidak,Ya,Keramik,Tembok,Sendiri,900
+91,Prisia Nasution,Menumpang,Pemulung,Tidak,Khawatir Tidak Makan,Rp 578.623,69%,Ya,Tidak,Tanah,Papan,Tidak Ada,Bukan Listrik
+92,Qasidah Rahman,Milik Sendiri,Pedagang,Tidak,Cukup,Rp 3.445.912,57%,Ya,Ya,Plesteran,Tembok,Sendiri,900
+93,Rossa Roslaina,Milik Sendiri,PNS,Ya,Cukup,Rp 6.980.130,33%,Tidak,Ya,Parquet,Tembok,Sendiri,1300
+94,Shireen Sungkar,Milik Sendiri,Ojek Online,Tidak,Kadang Khawatir,Rp 2.399.885,45%,Tidak,Tidak,Keramik,Papan,Sendiri,900
+95,Titi DJ,Milik Sendiri,Wiraswasta,Ya,Cukup,Rp 5.339.433,21%,Tidak,Ya,Granit,Tembok,Sendiri,2200
+96,Ucok Baba,Milik Sendiri,Petani,Tidak,Cukup,Rp 1.901.921,35%,Tidak,Tidak,Plesteran,Papan,Komunitas,900
+97,Vanessa Angel,Milik Sendiri,Buruh Pabrik,Ya,Kadang Khawatir,Rp 3.446.504,36%,Tidak,Tidak,Plesteran,Tembok,Sendiri,900
+98,Wulan Guritno,Milik Sendiri,Petani,Tidak,Kadang Khawatir,Rp 3.255.856,52%,Ya,Ya,Plesteran,Tembok,Sendiri,900
+99,Yuni Shara,Tidak Punya,Pemulung,Tidak,Pernah Tidak Makan,Rp 1.342.393,72%,Ya,Tidak,Plesteran,Papan,Komunitas,450
+100,Zaskia Gotik,Menumpang,Tidak Bekerja,Tidak,Pernah Tidak Makan,Rp 1.457.456,64%,Ya,Tidak,Plesteran,Seng,Tidak Ada,Bukan Listrik
+101,Abdurrahman Said,Tidak Punya,Tidak Bekerja,Tidak,Pernah Tidak Makan,Rp 529.402,67%,Ya,Tidak,Tanah,Papan,Tidak Ada,450
+102,Bambang Tri,Kontrak/Sewa,Buruh Pabrik,Ya,Cukup,Rp 1.890.719,36%,Tidak,Ya,Keramik,Papan,Sendiri,900
+103,Ceu Popong,Menumpang,Pedagang Kecil,Tidak,Pernah Tidak Makan,Rp 1.489.859,76%,Ya,Tidak,Plesteran,Papan,Komunitas,450
+104,Diah Permata,Kontrak/Sewa,Pedagang,Tidak,Cukup,Rp 3.309.955,49%,Tidak,Ya,Keramik,Papan,Sendiri,900
+105,Effendi Gazali,Milik Sendiri,Wiraswasta,Ya,Cukup,Rp 4.726.952,16%,Tidak,Ya,Keramik,Tembok,Sendiri,1300
+106,Farhan Fadillah,Menumpang,Tidak Bekerja,Tidak,Khawatir Tidak Makan,Rp 1.107.847,69%,Ya,Tidak,Tanah,Bambu,Tidak Ada,Bukan Listrik
+107,Giring Ganesha,Kontrak/Sewa,Pedagang,Tidak,Cukup,Rp 2.674.571,51%,Ya,Ya,Keramik,Tembok,Komunitas,900
+108,Hary Tanoe,Milik Sendiri,Guru,Ya,Cukup,Rp 5.990.706,22%,Tidak,Ya,Parquet,Tembok,Sendiri,2200
+109,Ibas Yudhoyono,Menumpang,Pedagang Kecil,Tidak,Khawatir Tidak Makan,Rp 1.171.256,77%,Ya,Tidak,Tanah,Bambu,Komunitas,450
+110,Jono Dodo,Tidak Punya,Buruh Tani,Tidak,Khawatir Tidak Makan,Rp 869.040,82%,Ya,Tidak,Tanah,Papan,Tidak Ada,Bukan Listrik
+111,Khofifah Indar,Menumpang,Pemulung,Tidak,Khawatir Tidak Makan,Rp 976.657,82%,Ya,Tidak,Plesteran,Seng,Tidak Ada,450
+112,Luhut Pandjaitan,Menumpang,Pemulung,Tidak,Pernah Tidak Makan,Rp 837.054,83%,Ya,Tidak,Tanah,Bambu,Tidak Ada,450
+113,Mahfud Salim,Milik Sendiri,Guru,Ya,Cukup,Rp 4.176.022,26%,Tidak,Ya,Parquet,Tembok,Sendiri,2200
+114,Nadiem Anwar,Milik Sendiri,Guru,Ya,Cukup,Rp 5.188.472,27%,Tidak,Ya,Parquet,Tembok,Sendiri,2200
+115,Otto Hasibuan,Kontrak/Sewa,Pedagang,Ya,Cukup,Rp 1.959.297,57%,Ya,Ya,Plesteran,Tembok,Komunitas,450
+116,Prasetyo Subianto,Milik Sendiri,PNS,Ya,Cukup,Rp 6.303.696,26%,Tidak,Ya,Parquet,Tembok,Sendiri,2200
+117,Qodari Yunanto,Milik Sendiri,Karyawan Swasta,Ya,Cukup,Rp 6.486.249,21%,Tidak,Ya,Parquet,Tembok,Sendiri,2200
+118,Rizal Ramli,Tidak Punya,Tidak Bekerja,Tidak,Pernah Tidak Makan,Rp 1.056.701,77%,Ya,Tidak,Tanah,Bambu,Tidak Ada,Bukan Listrik
+119,Sandi Uno,Milik Sendiri,Wiraswasta,Ya,Cukup,Rp 4.267.950,23%,Tidak,Ya,Keramik,Tembok,Sendiri,1300
+120,Tri Rismaharini,Milik Sendiri,Petani,Tidak,Kadang Khawatir,Rp 1.738.506,40%,Tidak,Tidak,Keramik,Tembok,Sendiri,1300
+121,Umbu Mella,Milik Sendiri,Karyawan Swasta,Ya,Cukup,Rp 7.512.595,18%,Tidak,Ya,Keramik,Tembok,Sendiri,2200
+122,Veronica Tan,Milik Sendiri,Karyawan Swasta,Ya,Cukup,Rp 3.931.413,33%,Tidak,Ya,Parquet,Tembok,Sendiri,1300
+123,Wiranto Atmojo,Tidak Punya,Buruh Tani,Tidak,Pernah Tidak Makan,Rp 686.626,83%,Ya,Tidak,Tanah,Bambu,Komunitas,450
+124,Yenny Wahid,Menumpang,Buruh Tani,Tidak,Khawatir Tidak Makan,Rp 1.460.378,69%,Ya,Tidak,Tanah,Papan,Komunitas,450
+125,Zulkifli Hasan,Menumpang,Tidak Bekerja,Tidak,Pernah Tidak Makan,Rp 968.974,84%,Ya,Tidak,Tanah,Papan,Tidak Ada,450
+126,Asep Sunandar,Milik Sendiri,Ojek Online,Ya,Cukup,Rp 2.113.089,46%,Tidak,Ya,Plesteran,Tembok,Sendiri,900
+127,Baharuddin Aritonang,Milik Sendiri,Guru,Ya,Cukup,Rp 5.225.690,19%,Tidak,Ya,Keramik,Tembok,Sendiri,2200
+128,Cahyadi Kumala,Milik Sendiri,PNS,Ya,Cukup,Rp 3.903.119,27%,Tidak,Ya,Granit,Tembok,Sendiri,2200
+129,Dadang Solihin,Tidak Punya,Tidak Bekerja,Tidak,Pernah Tidak Makan,Rp 1.026.684,78%,Ya,Tidak,Plesteran,Bambu,Komunitas,450
+130,Edy Rahmayadi,Milik Sendiri,Pedagang,Tidak,Kadang Khawatir,Rp 2.223.035,35%,Tidak,Ya,Plesteran,Tembok,Komunitas,1300
+131,Fachrul Razi,Milik Sendiri,Petani,Tidak,Cukup,Rp 1.548.874,47%,Tidak,Tidak,Plesteran,Tembok,Komunitas,900
+132,Gubernur Anies,Menumpang,Pemulung,Tidak,Pernah Tidak Makan,Rp 626.209,73%,Ya,Tidak,Plesteran,Bambu,Tidak Ada,Bukan Listrik
+133,Halim Kalla,Menumpang,Tidak Bekerja,Tidak,Khawatir Tidak Makan,Rp 663.038,61%,Ya,Tidak,Plesteran,Papan,Komunitas,Bukan Listrik
+134,Ilham Arief,Menumpang,Buruh Tani,Tidak,Pernah Tidak Makan,Rp 644.353,74%,Ya,Tidak,Plesteran,Bambu,Komunitas,450
+135,Jafar Umar,Milik Sendiri,Wiraswasta,Ya,Cukup,Rp 3.638.563,31%,Tidak,Ya,Granit,Tembok,Sendiri,2200
+136,Kemas Yahya,Menumpang,Buruh Tani,Tidak,Khawatir Tidak Makan,Rp 876.826,77%,Ya,Tidak,Plesteran,Kardus,Komunitas,450
+137,Laode Ida,Milik Sendiri,Buruh Pabrik,Ya,Cukup,Rp 2.461.568,40%,Tidak,Ya,Keramik,Papan,Komunitas,900
+138,Marzuki Alie,Milik Sendiri,Ojek Online,Ya,Cukup,Rp 1.713.030,49%,Tidak,Tidak,Keramik,Papan,Komunitas,900
+139,Nono Sampono,Menumpang,Pemulung,Tidak,Khawatir Tidak Makan,Rp 937.629,71%,Ya,Tidak,Tanah,Seng,Komunitas,450
+140,Oesman Sapta,Milik Sendiri,Guru,Ya,Cukup,Rp 4.910.706,19%,Tidak,Ya,Granit,Tembok,Sendiri,2200
+141,Puan Maharani,Milik Sendiri,Guru,Ya,Cukup,Rp 4.419.484,17%,Tidak,Ya,Keramik,Tembok,Sendiri,2200
+142,Rambe Kamarul,Menumpang,Pemulung,Tidak,Pernah Tidak Makan,Rp 585.530,67%,Ya,Tidak,Tanah,Bambu,Tidak Ada,Bukan Listrik
+143,Subagyo Partodiharjo,Milik Sendiri,Pedagang,Tidak,Kadang Khawatir,Rp 3.155.743,46%,Tidak,Ya,Keramik,Tembok,Sendiri,900
+144,Teras Narang,Tidak Punya,Tidak Bekerja,Tidak,Khawatir Tidak Makan,Rp 1.468.531,63%,Ya,Tidak,Tanah,Bambu,Tidak Ada,450
+145,Untung Wahono,Menumpang,Buruh Tani,Tidak,Khawatir Tidak Makan,Rp 754.346,72%,Ya,Tidak,Tanah,Papan,Komunitas,450
+146,Agung Prabowo,Menumpang,Buruh Tani,Tidak,Pernah Tidak Makan,Rp 1.177.164,84%,Ya,Tidak,Plesteran,Seng,Tidak Ada,450
+147,Bella Rahma,Milik Sendiri,Buruh Pabrik,Ya,Cukup,Rp 2.793.774,50%,Tidak,Ya,Plesteran,Tembok,Sendiri,1300
+148,Candra Kusuma,Milik Sendiri,Buruh Pabrik,Ya,Cukup,Rp 2.768.300,54%,Ya,Ya,Plesteran,Tembok,Komunitas,900
+149,Dita Permata,Menumpang,Buruh Tani,Tidak,Pernah Tidak Makan,Rp 824.912,67%,Ya,Tidak,Plesteran,Seng,Tidak Ada,450
+150,Eko Budiman,Tidak Punya,Pedagang Kecil,Tidak,Pernah Tidak Makan,Rp 1.115.115,67%,Ya,Tidak,Plesteran,Papan,Komunitas,450
+151,Fika Andriani,Milik Sendiri,Karyawan Swasta,Ya,Cukup,Rp 3.657.702,25%,Tidak,Ya,Granit,Tembok,Sendiri,2200
+152,Gilang Ramadan,Menumpang,Buruh Tani,Tidak,Pernah Tidak Makan,Rp 1.473.950,68%,Ya,Tidak,Tanah,Papan,Komunitas,450
+153,Hana Pertiwi,Menumpang,Tidak Bekerja,Tidak,Khawatir Tidak Makan,Rp 1.444.249,78%,Ya,Tidak,Plesteran,Bambu,Tidak Ada,450
+154,Ivan Setiawan,Kontrak/Sewa,Petani,Ya,Cukup,Rp 3.351.090,56%,Ya,Ya,Keramik,Tembok,Komunitas,900
+155,Julia Kusuma,Milik Sendiri,PNS,Ya,Cukup,Rp 5.351.317,29%,Tidak,Ya,Keramik,Tembok,Sendiri,2200
+156,Kevin Ananda,Menumpang,Pemulung,Tidak,Pernah Tidak Makan,Rp 731.447,79%,Ya,Tidak,Plesteran,Seng,Komunitas,450
+157,Layla Sari,Milik Sendiri,Petani,Tidak,Cukup,Rp 2.187.220,36%,Tidak,Ya,Keramik,Tembok,Sendiri,900
+158,Miko Prasetyo,Milik Sendiri,Karyawan Swasta,Ya,Cukup,Rp 6.297.753,26%,Tidak,Ya,Parquet,Tembok,Sendiri,2200
+159,Nina Agustina,Menumpang,Tidak Bekerja,Tidak,Pernah Tidak Makan,Rp 519.975,63%,Ya,Tidak,Plesteran,Bambu,Tidak Ada,450
+160,Oman Faturahman,Milik Sendiri,Buruh Pabrik,Ya,Cukup,Rp 2.468.181,49%,Tidak,Ya,Keramik,Tembok,Komunitas,900
+161,Prita Sari,Menumpang,Pedagang Kecil,Tidak,Pernah Tidak Makan,Rp 644.832,67%,Ya,Tidak,Tanah,Papan,Tidak Ada,Bukan Listrik
+162,Qori Indah,Kontrak/Sewa,Pedagang,Ya,Cukup,Rp 1.882.729,46%,Tidak,Tidak,Keramik,Papan,Sendiri,1300
+163,Ridwan Kamil,Milik Sendiri,Ojek Online,Ya,Kadang Khawatir,Rp 2.731.534,39%,Tidak,Ya,Keramik,Tembok,Sendiri,1300
+164,Sinta Dewi,Milik Sendiri,Petani,Ya,Cukup,Rp 3.416.545,43%,Tidak,Ya,Keramik,Papan,Komunitas,900
+165,Tama Wijaya,Menumpang,Tidak Bekerja,Tidak,Pernah Tidak Makan,Rp 1.350.610,73%,Ya,Tidak,Plesteran,Papan,Tidak Ada,450
+166,Ulum Basuki,Milik Sendiri,Wiraswasta,Ya,Cukup,Rp 6.248.385,32%,Tidak,Ya,Granit,Tembok,Sendiri,2200
+167,Vira Safitri,Tidak Punya,Pemulung,Tidak,Pernah Tidak Makan,Rp 999.115,65%,Ya,Tidak,Tanah,Bambu,Tidak Ada,450
+168,Wahid Hasyim,Tidak Punya,Pemulung,Tidak,Pernah Tidak Makan,Rp 1.001.076,60%,Ya,Tidak,Plesteran,Bambu,Tidak Ada,450
+169,Xara Putri,Tidak Punya,Tidak Bekerja,Tidak,Khawatir Tidak Makan,Rp 646.649,70%,Ya,Tidak,Plesteran,Papan,Komunitas,450
+170,Yogi Pranata,Milik Sendiri,Ojek Online,Ya,Kadang Khawatir,Rp 2.448.163,35%,Tidak,Ya,Keramik,Tembok,Sendiri,900
+171,Zelda Amara,Milik Sendiri,Pedagang,Tidak,Cukup,Rp 2.029.992,35%,Tidak,Ya,Keramik,Tembok,Sendiri,1300
+172,Amir Hamzah,Menumpang,Tidak Bekerja,Tidak,Khawatir Tidak Makan,Rp 1.091.491,65%,Ya,Tidak,Tanah,Kardus,Komunitas,450
+173,Bela Sari,Kontrak/Sewa,Buruh Pabrik,Ya,Cukup,Rp 3.164.600,55%,Ya,Ya,Plesteran,Tembok,Sendiri,900
+174,Cindy Claudia,Menumpang,Tidak Bekerja,Tidak,Khawatir Tidak Makan,Rp 858.690,71%,Ya,Tidak,Tanah,Papan,Tidak Ada,450
+175,Doni Kusuma,Kontrak/Sewa,Buruh Pabrik,Ya,Kadang Khawatir,Rp 1.666.703,36%,Tidak,Ya,Plesteran,Tembok,Komunitas,900
+176,Erna Wati,Menumpang,Pedagang Kecil,Tidak,Pernah Tidak Makan,Rp 835.914,75%,Ya,Tidak,Tanah,Seng,Komunitas,450
+177,Farid Hardian,Kontrak/Sewa,Petani,Ya,Kadang Khawatir,Rp 1.849.307,49%,Tidak,Ya,Keramik,Papan,Sendiri,900
+178,Gina Nuraeni,Tidak Punya,Tidak Bekerja,Tidak,Khawatir Tidak Makan,Rp 1.082.004,79%,Ya,Tidak,Plesteran,Kardus,Komunitas,450
+179,Haris Maulana,Milik Sendiri,Wiraswasta,Ya,Cukup,Rp 7.617.923,32%,Tidak,Ya,Parquet,Tembok,Sendiri,2200
+180,Intan Permata,Menumpang,Buruh Tani,Tidak,Pernah Tidak Makan,Rp 1.400.446,71%,Ya,Tidak,Tanah,Papan,Komunitas,Bukan Listrik
+181,Jaka Santang,Menumpang,Buruh Tani,Tidak,Khawatir Tidak Makan,Rp 1.406.323,63%,Ya,Tidak,Tanah,Seng,Tidak Ada,450
+182,Khoirul Anam,Tidak Punya,Tidak Bekerja,Tidak,Khawatir Tidak Makan,Rp 916.885,80%,Ya,Tidak,Plesteran,Bambu,Tidak Ada,450
+183,Leli Marlina,Milik Sendiri,Wiraswasta,Ya,Cukup,Rp 3.575.388,24%,Tidak,Ya,Granit,Tembok,Sendiri,1300
+184,Maman Abdurrahman,Milik Sendiri,Wiraswasta,Ya,Cukup,Rp 4.997.618,18%,Tidak,Ya,Parquet,Tembok,Sendiri,2200
+185,Nisa Aulia,Tidak Punya,Pedagang Kecil,Tidak,Pernah Tidak Makan,Rp 1.001.174,77%,Ya,Tidak,Tanah,Bambu,Komunitas,450
+186,Oji Maulana,Milik Sendiri,Pedagang,Ya,Kadang Khawatir,Rp 2.189.115,41%,Tidak,Ya,Plesteran,Tembok,Sendiri,900
+187,Pipit Fajarwati,Milik Sendiri,Wiraswasta,Ya,Cukup,Rp 3.757.681,17%,Tidak,Ya,Parquet,Tembok,Sendiri,2200
+188,Qodri Maulana,Kontrak/Sewa,Petani,Tidak,Cukup,Rp 1.954.162,38%,Tidak,Tidak,Keramik,Papan,Komunitas,450
+189,Rina Oktaviani,Kontrak/Sewa,Petani,Ya,Cukup,Rp 2.783.141,43%,Tidak,Ya,Keramik,Tembok,Sendiri,450
+190,Surya Dinata,Menumpang,Pedagang Kecil,Tidak,Khawatir Tidak Makan,Rp 1.360.226,81%,Ya,Tidak,Tanah,Papan,Tidak Ada,Bukan Listrik
+191,Tini Sumarni,Menumpang,Buruh Tani,Tidak,Khawatir Tidak Makan,Rp 1.280.641,82%,Ya,Tidak,Tanah,Bambu,Komunitas,450
+192,Udin Basuki,Milik Sendiri,PNS,Ya,Cukup,Rp 4.335.036,29%,Tidak,Ya,Keramik,Tembok,Sendiri,2200
+193,Vivi Anggraini,Milik Sendiri,Wiraswasta,Ya,Cukup,Rp 6.996.605,30%,Tidak,Ya,Keramik,Tembok,Sendiri,1300
+194,Wati Sumarsih,Kontrak/Sewa,Petani,Tidak,Cukup,Rp 3.175.611,53%,Ya,Ya,Keramik,Tembok,Sendiri,1300
+195,Yaya Sunarya,Menumpang,Buruh Tani,Tidak,Pernah Tidak Makan,Rp 758.503,66%,Ya,Tidak,Plesteran,Papan,Komunitas,Bukan Listrik
+196,Andi Wijaya,Tidak Punya,Pedagang Kecil,Tidak,Pernah Tidak Makan,Rp 1.243.537,72%,Ya,Tidak,Tanah,Bambu,Komunitas,450
+197,Bowo Santoso,Milik Sendiri,Ojek Online,Ya,Kadang Khawatir,Rp 2.744.625,57%,Ya,Ya,Keramik,Tembok,Sendiri,900
+198,Cakra Khan,Milik Sendiri,Guru,Ya,Cukup,Rp 7.398.606,31%,Tidak,Ya,Keramik,Tembok,Sendiri,2200
+199,Dimas Anggara,Milik Sendiri,Karyawan Swasta,Ya,Cukup,Rp 5.543.037,24%,Tidak,Ya,Granit,Tembok,Sendiri,2200
+200,Evan Dimas,Milik Sendiri,Guru,Ya,Cukup,Rp 7.988.198,34%,Tidak,Ya,Granit,Tembok,Sendiri,1300
