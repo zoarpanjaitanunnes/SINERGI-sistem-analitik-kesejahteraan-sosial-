@@ -72,23 +72,12 @@ with tab1:
         with st.container(border=True):
             st.markdown("#### ⚙️ Konfigurasi Parameter Analisis")
 
-            select_all = st.checkbox("✅ Pilih Semua Indikator", value=False, key="select_all")
-            if select_all:
-                fitur_makro = kolom_angka
-                st.caption(f"📊 {len(kolom_angka)} indikator aktif — semua variabel BPS digunakan.")
-                st.multiselect(
-                    "Pilih Indikator Makro (Multi-dimensi) untuk dianalisis oleh AI:",
-                    options=kolom_angka,
-                    default=kolom_angka,
-                    disabled=True, 
-                    key="makro_display"
-                )
-            else:
-                fitur_makro = st.multiselect(
-                    "Pilih Indikator Makro (Multi-dimensi) untuk dianalisis oleh AI:", 
-                    options=kolom_angka,
-                    key="makro"
-                )
+            fitur_makro = st.multiselect(
+                "Pilih Indikator Makro (Multi-dimensi) untuk dianalisis oleh AI:", 
+                options=kolom_angka,
+                help="Pilih minimal 2 indikator untuk melakukan clustering",
+                key="makro"
+            )
 
             jumlah_klaster = st.slider(
                 "🔢 Jumlah Klaster (K):",
