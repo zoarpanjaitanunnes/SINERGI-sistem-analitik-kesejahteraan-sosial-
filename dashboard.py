@@ -48,6 +48,9 @@ tab1, tab2, tab3= st.tabs(["🌍 TAHAP 1: PEMETAAN MAKRO (ALOKASI WILAYAH)", "�
 # ==========================================
 # TAB 1: ANALISIS MAKRO
 # ==========================================
+# ==========================================
+# TAB 1: ANALISIS MAKRO
+# ==========================================
 with tab1:
     st.info("💡 **Objective:** Sistem menganalisis data agregat makro untuk merekomendasikan Kabupaten/Kota yang paling membutuhkan intervensi program kesejahteraan.")
     
@@ -65,25 +68,45 @@ with tab1:
         kolom_angka = df_makro.select_dtypes(include=['float64', 'int64']).columns.tolist()
         if 'Klasifikasi Kemiskinan' in kolom_angka: 
             kolom_angka.remove('Klasifikasi Kemiskinan')
-            
-        target_default = ['Persentase Penduduk Miskin (P0) Menurut Kabupaten/Kota (Persen)', 'Indeks Pembangunan Manusia']
-        default_pilihan = [col for col in target_default if col in kolom_angka]
-        if len(default_pilihan) < 2 and len(kolom_angka) >= 2:
-            default_pilihan = kolom_angka[:2]
 
         with st.container(border=True):
             st.markdown("#### ⚙️ Konfigurasi Parameter Analisis")
 
-            if st.checkbox("✅ Pilih Semua Indikator", value=False, key="select_all"):
-                st.session_state["makro"] = kolom_angka
+            select_all = st.checkbox("✅ Pilih Semua Indikator", value=False, key="select_all")
+            if select_all:
+                fitur_makro = kolom_angka
                 st.caption(f"📊 {len(kolom_angka)} indikator aktif — semua variabel BPS digunakan.")
+                st.multiselect(
+                    "Pilih Indikator Makro (Multi-dimensi) untuk dianalisis oleh AI:",
+                    options=kolom_angka,
+                    default=kolom_angka,
+                    disabled=True, 
+                    key="makro_display"
+                )
+            else:
+                fitur_makro = st.multiselect(
+                    "Pilih Indikator Makro (Multi-dimensi) untuk dianalisis oleh AI:", 
+                    options=kolom_angka,
+                    key="makro"
+                )
 
-            fitur_makro = st.multiselect(
-                "Pilih Indikator Makro (Multi-dimensi) untuk dianalisis oleh AI:", 
-                options=kolom_angka, 
-                key="makro"
+            jumlah_klaster = st.slider(
+                "🔢 Jumlah Klaster (K):",
+                min_value=2,
+                max_value=6,
+                value=3,
+                help="K=2 paling sederhana, K=3 standar, K=4-6 lebih detail tapi skor bisa turun"
             )
-        
+
+            info_k = {
+                2: "K=2: Wilayah dibagi jadi **Layak Bantuan** dan **Mandiri**. Dilengkapi ranking internal untuk menentukan urutan prioritas.",
+                3: "K=3: Standar — **Mendesak, Menengah, Stabil**. Paling umum dipakai.",
+                4: "K=4: Lebih detail — membedakan tingkat menengah jadi 2 sub-kelompok.",
+                5: "K=5: Sangat detail — cocok untuk analisis mendalam.",
+                6: "K=6: Paling granular — pastikan datamu cukup besar untuk ini.",
+            }
+            st.caption(info_k.get(jumlah_klaster, ""))
+
         if len(fitur_makro) >= 2:
             if st.button("🚀 JALANKAN ANALISIS MAKRO", type="primary", use_container_width=True):
                 with st.spinner('AI sedang memproses data...'):
@@ -92,37 +115,68 @@ with tab1:
                     scaler_makro = StandardScaler()
                     X_makro_scaled = scaler_makro.fit_transform(df_clean[fitur_makro])
                     
-                    kmeans_makro = KMeans(n_clusters=3, random_state=42, n_init=10)
+                    kmeans_makro = KMeans(n_clusters=jumlah_klaster, random_state=42, n_init=10)
                     df_clean['Klaster'] = kmeans_makro.fit_predict(X_makro_scaled)
+
                     main_feature = fitur_makro[0]
                     avg_val = df_clean.groupby('Klaster')[main_feature].mean()
-
                     is_positive_indicator = any(word in main_feature.upper() for word in ['IPM', 'INDEKS PEMBANGUNAN', 'PENGELUARAN'])
 
                     if is_positive_indicator:
-                        klaster_stabil = avg_val.idxmax()
-                        klaster_mendesak = avg_val.idxmin()
+                        urutan_klaster = avg_val.sort_values(ascending=True).index.tolist()
                     else:
-                        klaster_mendesak = avg_val.idxmax()
-                        klaster_stabil = avg_val.idxmin()
+                        urutan_klaster = avg_val.sort_values(ascending=False).index.tolist()
 
-                    klaster_menengah = [i for i in [0, 1, 2] if i not in [klaster_mendesak, klaster_stabil]][0]
+                    def buat_label(jumlah_klaster):
+                        if jumlah_klaster == 2:
+                            labels = ['Layak Menerima Bantuan', 'Mandiri / Tidak Layak']
+                        elif jumlah_klaster == 3:
+                            labels = ['Prioritas 1 (Intervensi Mendesak)', 'Prioritas 2 (Intervensi Menengah)', 'Prioritas 3 (Kondisi Stabil)']
+                        elif jumlah_klaster == 4:
+                            labels = ['Prioritas 1 (Sangat Mendesak)', 'Prioritas 2 (Mendesak)', 'Prioritas 3 (Menengah)', 'Prioritas 4 (Kondisi Stabil)']
+                        elif jumlah_klaster == 5:
+                            labels = ['Prioritas 1 (Sangat Mendesak)', 'Prioritas 2 (Mendesak)', 'Prioritas 3 (Menengah)', 'Prioritas 4 (Cukup Stabil)', 'Prioritas 5 (Kondisi Stabil)']
+                        else:
+                            labels = [f'Prioritas {i+1}' for i in range(jumlah_klaster)]
+                        return {urutan_klaster[i]: labels[i] for i in range(jumlah_klaster)}
 
-                    label_map = {
-                        klaster_mendesak: 'Prioritas 1 (Intervensi Mendesak)',
-                        klaster_menengah: 'Prioritas 2 (Intervensi Menengah)',
-                        klaster_stabil: 'Prioritas 3 (Kondisi Stabil)'
-                    }
-                    
+                    label_map = buat_label(jumlah_klaster)
                     df_clean['Status Wilayah'] = df_clean['Klaster'].map(label_map)
-                
+
+                    label_mendesak = list(label_map.values())[0]
+
+                    # Hitung skor ranking per indikator
+                    skor_total = pd.Series(0.0, index=df_clean.index)
+                    for fitur in fitur_makro:
+                        if is_positive_indicator:
+                            # Indikator positif: nilai rendah = makin buruk
+                            skor_total += df_clean[fitur].rank(ascending=True)
+                        else:
+                            # Indikator negatif: nilai tinggi = makin buruk
+                            skor_total += df_clean[fitur].rank(ascending=False)
+
+                    df_clean['Skor_Ranking'] = skor_total
+
+                    # Ranking hanya untuk klaster paling mendesak
+                    df_clean['Ranking_Prioritas'] = '-'
+                    mask = df_clean['Status Wilayah'] == label_mendesak
+                    df_clean.loc[mask, 'Ranking_Prioritas'] = (
+                        df_clean.loc[mask, 'Skor_Ranking']
+                        .rank(ascending=True)
+                        .astype(int)
+                        .apply(lambda x: f"#{x}")
+                    )
+
                     sil_score_makro = silhouette_score(X_makro_scaled, df_clean['Klaster'])
                     st.session_state['makro_results'] = {
                         'df_clean': df_clean,
                         'X_scaled': X_makro_scaled,
                         'sil_score': sil_score_makro,
                         'fitur': fitur_makro,
-                        'kmeans_obj': kmeans_makro
+                        'kmeans_obj': kmeans_makro,
+                        'label_map': label_map,
+                        'jumlah_klaster': jumlah_klaster,
+                        'label_mendesak': label_mendesak
                     }
                     st.session_state['makro_jalan'] = True
 
@@ -131,14 +185,22 @@ with tab1:
                 df_clean = res['df_clean']
                 sil_score_makro = res['sil_score']
                 fitur_res = res['fitur']
+                label_map = res['label_map']
+                jumlah_klaster_res = res['jumlah_klaster']
+                label_mendesak = res['label_mendesak']
+                semua_label = list(label_map.values())
 
-                col_acc1, col_acc2 = st.columns(2)
+                # METRIK
+                col_acc1, col_acc2, col_acc3 = st.columns(3)
                 with col_acc1:
-                    st.metric("🎯 Akurasi Model (Silhouette Score)", f"{sil_score_makro:.2f}")
+                    st.metric("🎯 Silhouette Score", f"{sil_score_makro:.2f}")
                 with col_acc2:
-                    status_ml = "Kuat" if sil_score_makro > 0.5 else "Cukup"
-                    st.write(f"**Interpretasi AI:** Pengelompokan wilayah bersifat **{status_ml}**.")
+                    status_ml = "Kuat ✅" if sil_score_makro > 0.5 else "Cukup ⚠️"
+                    st.metric("📊 Kualitas Klaster", status_ml)
+                with col_acc3:
+                    st.metric("🔢 Jumlah Klaster (K)", jumlah_klaster_res)
 
+                # ELBOW METHOD
                 with st.expander("📊 Lihat Dasar Matematis Penentuan Jumlah Klaster (Elbow Method)"):
                     distortions = []
                     K_range = range(1, 8)
@@ -147,66 +209,97 @@ with tab1:
                         k_model.fit(df_clean[fitur_res])
                         distortions.append(k_model.inertia_)
                     
-                    fig_elbow = px.line(x=list(K_range), y=distortions, markers=True, title="Elbow Method")
+                    fig_elbow = px.line(x=list(K_range), y=distortions, markers=True, title="Elbow Method — Penentuan K Optimal")
+                    fig_elbow.add_vline(x=jumlah_klaster_res, line_dash="dash", line_color="red", annotation_text=f"K={jumlah_klaster_res} (dipilih)")
                     fig_elbow.update_layout(xaxis_title="Jumlah Klaster (K)", yaxis_title="Inertia/Distortion")
                     st.plotly_chart(fig_elbow, use_container_width=True)
-                
+
+                # CHART
                 with st.container(border=True):
                     st.markdown("#### 📈 Hasil Klasterisasi Wilayah")
                     col_chart1, col_chart2 = st.columns(2)
                     with col_chart1:
-                        fig_pie1 = px.pie(df_clean, names='Status Wilayah', hole=0.4, color_discrete_sequence=px.colors.qualitative.Pastel)
+                        fig_pie1 = px.pie(df_clean, names='Status Wilayah', hole=0.4,
+                                          color_discrete_sequence=px.colors.qualitative.Pastel)
                         st.plotly_chart(fig_pie1, use_container_width=True)
                     with col_chart2:
-                        fig_scatter1 = px.scatter(df_clean, x=fitur_res[0], y=fitur_res[1], color='Status Wilayah', hover_data=['Kab/Kota'], color_discrete_sequence=px.colors.qualitative.Pastel)
+                        fig_scatter1 = px.scatter(df_clean, x=fitur_res[0], y=fitur_res[1],
+                                                   color='Status Wilayah', hover_data=['Kab/Kota', 'Ranking_Prioritas'],
+                                                   color_discrete_sequence=px.colors.qualitative.Pastel)
                         st.plotly_chart(fig_scatter1, use_container_width=True)
-                    
+
+                # DIREKTORI — dengan ranking di klaster mendesak
                 with st.container(border=True):
                     st.markdown("#### 📋 Direktori Prioritas Wilayah")
-                    tab_p1, tab_p2, tab_p3 = st.tabs(["🔴 Prioritas 1", "🟡 Prioritas 2", "🟢 Prioritas 3"])
-                    with tab_p1:
-                        st.dataframe(df_clean[df_clean['Status Wilayah'] == 'Prioritas 1 (Intervensi Mendesak)'][['Provinsi', 'Kab/Kota', 'Status Wilayah']].reset_index(drop=True), use_container_width=True)
-                    with tab_p2:
-                        st.dataframe(df_clean[df_clean['Status Wilayah'] == 'Prioritas 2 (Intervensi Menengah)'][['Provinsi', 'Kab/Kota', 'Status Wilayah']].reset_index(drop=True), use_container_width=True)
-                    with tab_p3:
-                        st.dataframe(df_clean[df_clean['Status Wilayah'] == 'Prioritas 3 (Kondisi Stabil)'][['Provinsi', 'Kab/Kota', 'Status Wilayah']].reset_index(drop=True), use_container_width=True)
 
+                    emoji_list = ['🔴', '🟠', '🟡', '🔵', '🟢']
+                    tab_labels = [f"{emoji_list[i] if i < len(emoji_list) else '⚪'} {label}" for i, label in enumerate(semua_label)]
+                    tabs_direktori = st.tabs(tab_labels)
 
+                    for i, (tab_dir, label) in enumerate(zip(tabs_direktori, semua_label)):
+                        with tab_dir:
+                            if label == label_mendesak:
+                                # Tampilkan dengan ranking, diurutkan
+                                df_filtered = df_clean[df_clean['Status Wilayah'] == label][
+                                    ['Ranking_Prioritas', 'Provinsi', 'Kab/Kota', 'Status Wilayah']
+                                ].copy()
+                                df_filtered['Rank_Sort'] = df_filtered['Ranking_Prioritas'].str.replace('#', '').astype(int)
+                                df_filtered = df_filtered.sort_values('Rank_Sort').drop(columns='Rank_Sort').reset_index(drop=True)
+                                st.caption(f"Total: {len(df_filtered)} Kab/Kota — diurutkan dari yang **paling mendesak** (Rank #1)")
+                            else:
+                                df_filtered = df_clean[df_clean['Status Wilayah'] == label][
+                                    ['Provinsi', 'Kab/Kota', 'Status Wilayah']
+                                ].reset_index(drop=True)
+                                st.caption(f"Total: {len(df_filtered)} Kab/Kota")
+                            
+                            st.dataframe(df_filtered, use_container_width=True)
+
+                # INSIGHT STRATEGIS
                 st.markdown("---")
                 st.subheader("📌 Insight Strategis Nasional")
 
                 total_wilayah = len(df_clean)
                 counts = df_clean['Status Wilayah'].value_counts()
-                p1_pct = (counts.get('Prioritas 1 (Intervensi Mendesak)', 0) / total_wilayah) * 100
-                p3_pct = (counts.get('Prioritas 3 (Kondisi Stabil)', 0) / total_wilayah) * 100
+                label_stabil = semua_label[-1]
+
+                p1_pct = (counts.get(label_mendesak, 0) / total_wilayah) * 100
+                p_stabil_pct = (counts.get(label_stabil, 0) / total_wilayah) * 100
 
                 col_stat1, col_stat2, col_stat3 = st.columns(3)
-                col_stat1.metric("🔴 Tingkat Kerentanan Tinggi (Persentase wilayah yang masuk Prioritas 1)", f"{p1_pct:.1f}%", help="Persentase wilayah yang masuk Prioritas 1")
-                col_stat2.metric("🟢 Tingkat Kemandirian (Persentase wilayah yang masuk Kondisi Stabil)", f"{p3_pct:.1f}%", help="Persentase wilayah yang masuk Kondisi Stabil")
-                col_stat3.metric("📍 Total Titik Pantau (Total Wilayah)", f"{total_wilayah} Kab/Kota")
+                col_stat1.metric("🔴 Tingkat Kerentanan Tinggi", f"{p1_pct:.1f}%", help=f"Persentase wilayah {label_mendesak}")
+                col_stat2.metric("🟢 Tingkat Kemandirian", f"{p_stabil_pct:.1f}%", help=f"Persentase wilayah {label_stabil}")
+                col_stat3.metric("📍 Total Titik Pantau", f"{total_wilayah} Kab/Kota")
+
+                # TOP 10 PALING MENDESAK
+                with st.container(border=True):
+                    st.markdown("#### 🏆 Top 10 Wilayah Paling Mendesak")
+                    df_top10 = df_clean[df_clean['Status Wilayah'] == label_mendesak].copy()
+                    df_top10['Rank_Sort'] = df_top10['Ranking_Prioritas'].str.replace('#', '').astype(int)
+                    df_top10 = df_top10.sort_values('Rank_Sort').head(10)[
+                        ['Ranking_Prioritas', 'Provinsi', 'Kab/Kota'] + fitur_res
+                    ].reset_index(drop=True)
+                    st.dataframe(df_top10, use_container_width=True)
 
                 with st.container(border=True):
                     col_info1, col_info2 = st.columns(2)
-                    
                     with col_info1:
                         st.error("🚨 **Wilayah Konsentrasi Kemiskinan Tertinggi**")
-                        top_p1_prov = df_clean[df_clean['Status Wilayah'] == 'Prioritas 1 (Intervensi Mendesak)']['Provinsi'].value_counts().idxmax()
-                        count_p1 = df_clean[df_clean['Status Wilayah'] == 'Prioritas 1 (Intervensi Mendesak)']['Provinsi'].value_counts().max()
-                        st.write(f"Provinsi **{top_p1_prov}** tercatat memiliki konsentrasi wilayah Prioritas 1 terbanyak ({count_p1} Kab/Kota).")
+                        top_p1_prov = df_clean[df_clean['Status Wilayah'] == label_mendesak]['Provinsi'].value_counts().idxmax()
+                        count_p1 = df_clean[df_clean['Status Wilayah'] == label_mendesak]['Provinsi'].value_counts().max()
+                        st.write(f"Provinsi **{top_p1_prov}** tercatat memiliki konsentrasi wilayah {label_mendesak} terbanyak ({count_p1} Kab/Kota).")
                         st.caption("Direkomendasikan untuk penambahan alokasi anggaran Bansos Makro.")
-
                     with col_info2:
                         st.success("✅ **Wilayah Paling Stabil**")
-                        top_p3_prov = df_clean[df_clean['Status Wilayah'] == 'Prioritas 3 (Kondisi Stabil)']['Provinsi'].value_counts().idxmax()
-                        count_p3 = df_clean[df_clean['Status Wilayah'] == 'Prioritas 3 (Kondisi Stabil)']['Provinsi'].value_counts().max()
+                        top_p3_prov = df_clean[df_clean['Status Wilayah'] == label_stabil]['Provinsi'].value_counts().idxmax()
+                        count_p3 = df_clean[df_clean['Status Wilayah'] == label_stabil]['Provinsi'].value_counts().max()
                         st.write(f"Provinsi **{top_p3_prov}** menunjukkan performa kesejahteraan terbaik ({count_p3} Kab/Kota Stabil).")
                         st.caption("Dapat dijadikan referensi studi banding tata kelola ekonomi daerah.")
+
         else:
             st.warning("⚠️ Silakan pilih minimal 2 indikator makro.")
             
     except Exception as e:
         st.error(f"Sistem gagal mengeksekusi: {e}")
-
 
 # ==========================================
 # TAB 2: ANALISIS MIKRO
@@ -427,61 +520,165 @@ with tab2:
             c_met1.metric("📊 Silhouette Score", f"{sil_m:.2f}")
             c_met2.metric("📋 Kriteria Digunakan", "9 Kriteria Kemensos")
             c_met3.metric("👥 Total KK Diproses", f"{len(df_m)} Keluarga")
-
+    
 # ==========================================
-# TAB 3: EVALUASI & AUTO-OPTIMIZER AI (TANPA PCA)
+# TAB 3: AUTO-OPTIMIZER (FIXED K, ALL COMBINATIONS)
 # ==========================================
 with tab3:
-    st.subheader("💡 SINERGI AI: Auto-Optimizer")
-    st.markdown("Mesin ini akan mencari kombinasi indikator yang menghasilkan **Akurasi (Silhouette Score) tertinggi** pada data asli.")
-    
-    if st.button("🔍 CARI KOMBINASI INDIKATOR TERBAIK", type="primary", use_container_width=True):
+    st.subheader("🤖 SINERGI AI: Auto-Optimizer")
+    st.markdown("Pilih jumlah klaster **(K)**, lalu sistem otomatis mencoba **semua kombinasi indikator** dan merekomendasikan yang terbaik.")
+
+    with st.container(border=True):
+        st.markdown("#### ⚙️ Konfigurasi Optimizer")
+
+        k_pilihan = st.selectbox(
+            "🔢 Pilih Jumlah Klaster (K):",
+            options=[2, 3, 4, 5, 6],
+            index=1,
+            help="Sistem akan mencari kombinasi indikator terbaik untuk K ini"
+        )
+        info_k = {
+            2: "K=2: Wilayah dibagi jadi **Layak Bantuan** dan **Mandiri**.",
+            3: "K=3: Standar — **Mendesak, Menengah, Stabil**.",
+            4: "K=4: Lebih detail — 4 tingkatan prioritas.",
+            5: "K=5: Sangat detail — 5 tingkatan.",
+            6: "K=6: Paling granular.",
+        }
+        st.caption(info_k.get(k_pilihan, ""))
+
+        # Estimasi — pakai SEMUA kolom_angka, max kombinasi 3 indikator (bisa diubah)
         import itertools
-        
-        cols = kolom_angka
+        MAX_INDIKATOR = len(kolom_angka)
+        total_estimasi = sum(
+            len(list(itertools.combinations(kolom_angka, r)))
+            for r in range(2, MAX_INDIKATOR + 1)
+        )
+        estimasi_detik = total_estimasi * 0.05
+        estimasi_str = f"~{estimasi_detik:.0f} detik" if estimasi_detik < 60 else f"~{estimasi_detik/60:.1f} menit"
+        st.caption(f"🧮 Total kombinasi yang akan diuji: **{total_estimasi:,}** | Estimasi waktu: **{estimasi_str}**")
+
+    if st.button(f"🔍 CARI KOMBINASI TERBAIK UNTUK K={k_pilihan}", type="primary", use_container_width=True):
         best_score = -1
         best_combination = []
-        
-        progress_bar = st.progress(0)
+        all_results = []
+
         all_combos = []
-        for r in range(2, 5):
-            all_combos.extend(list(itertools.combinations(cols, r)))
-            
+        for r in range(2, len(kolom_angka) + 1): 
+                all_combos.extend(list(itertools.combinations(kolom_angka, r)))
+
         total_comb = len(all_combos)
-        
-        with st.spinner(f'Mengevaluasi {total_comb} kombinasi data...'):
+        progress_bar = st.progress(0)
+        status_text = st.empty()
+
+        with st.spinner(f'Mengevaluasi {total_comb:,} kombinasi untuk K={k_pilihan}...'):
             for i, combo in enumerate(all_combos):
                 df_temp = df_makro.dropna(subset=list(combo))
                 if len(df_temp) > 10:
-                    scaler_temp = StandardScaler()
-                    X_scaled_temp = scaler_temp.fit_transform(df_temp[list(combo)])
-                    
-                    km_temp = KMeans(n_clusters=3, random_state=42, n_init=5)
-                    labels_temp = km_temp.fit_predict(X_scaled_temp)
-                    
-                    score_temp = silhouette_score(X_scaled_temp, labels_temp)
-                    
-                    if score_temp > best_score:
-                        best_score = score_temp
-                        best_combination = combo
-                
+                    try:
+                        scaler_temp = StandardScaler()
+                        X_scaled_temp = scaler_temp.fit_transform(df_temp[list(combo)])
+                        km_temp = KMeans(n_clusters=k_pilihan, random_state=42, n_init=5)
+                        labels_temp = km_temp.fit_predict(X_scaled_temp)
+                        score_temp = silhouette_score(X_scaled_temp, labels_temp)
+
+                        all_results.append({
+                            'Kombinasi Indikator': ' + '.join(combo),
+                            'Jumlah Indikator': len(combo),
+                            'Silhouette Score': round(score_temp, 4),
+                        })
+
+                        if score_temp > best_score:
+                            best_score = score_temp
+                            best_combination = combo
+
+                    except Exception:
+                        pass
+
                 progress_bar.progress((i + 1) / total_comb)
-        
-        st.session_state['best_combo'] = {
-            'score': best_score,
-            'features': best_combination
+                status_text.caption(f"🔄 Memproses kombinasi {i+1:,} / {total_comb:,}...")
+
+        status_text.empty()
+        progress_bar.empty()
+
+        st.session_state['optimizer_results'] = {
+            'best_score': best_score,
+            'best_combination': best_combination,
+            'best_k': k_pilihan,
+            'all_results': all_results
         }
         st.balloons()
 
-    if 'best_combo' in st.session_state:
-        res_best = st.session_state['best_combo']
+    # TAMPILKAN HASIL
+    if 'optimizer_results' in st.session_state:
+        opt = st.session_state['optimizer_results']
+        best_score = opt['best_score']
+        best_combination = opt['best_combination']
+        best_k = opt['best_k']
+        df_results = pd.DataFrame(opt['all_results'])
+
+        # HASIL TERBAIK — HERO SECTION
         with st.container(border=True):
-            st.success(f"### 🎉 Kombinasi Akurasi Tertinggi Ditemukan!")
-            col_res1, col_res2 = st.columns([1, 2])
-            with col_res1:
-                st.metric("Skor Maksimal", f"{res_best['score']:.4f}")
-            with col_res2:
-                st.write("**Gunakan Indikator ini di Tab 1:**")
-                for f in res_best['features']:
-                    st.write(f"- {f}")
-            
+            st.success(f"### 🎉 Kombinasi Terbaik untuk K={best_k} Ditemukan!")
+
+            kualitas = "Sangat Kuat 🌟" if best_score > 0.7 else "Kuat ✅" if best_score > 0.5 else "Cukup ⚠️"
+            col_best1, col_best2 = st.columns(2)
+            col_best1.metric("🏆 Silhouette Score Terbaik", f"{best_score:.4f}", help="Semakin mendekati 1.0 = klaster makin jelas terpisah")
+            col_best2.metric("📊 Kualitas Klaster", kualitas)
+
+            st.markdown("**✅ Indikator yang direkomendasikan — salin ke Tab 1:**")
+            for idx, f in enumerate(best_combination, 1):
+                st.markdown(f"**{idx}.** `{f}`")
+
+        st.markdown("---")
+
+        # TOP 10 — BAR CHART SEDERHANA
+        with st.container(border=True):
+            st.markdown(f"#### 🏅 Top 10 Kombinasi Terbaik (K={best_k})")
+            st.caption("Semakin panjang batangnya = semakin baik kualitas pengelompokannya.")
+
+            # Untuk CHART tetap top 10
+        df_top10_chart = (
+            df_results
+            .sort_values('Silhouette Score', ascending=False)
+            .head(10)
+            .reset_index(drop=True)
+        )
+        df_top10_chart.index += 1
+        df_top10_chart['Label'] = df_top10_chart.apply(
+            lambda row: f"⭐ {row['Kombinasi Indikator']}" if row.name == 1 else row['Kombinasi Indikator'],
+            axis=1
+        )
+
+        fig_bar = px.bar(
+            df_top10_chart,
+            x='Silhouette Score',
+            y='Label',
+            orientation='h',
+            color='Silhouette Score',
+            color_continuous_scale='RdYlGn',
+            text='Silhouette Score',
+            title=f"Top 10 Kombinasi Terbaik (K={best_k})"
+        )
+        fig_bar.update_traces(texttemplate='%{text:.4f}', textposition='outside')
+        fig_bar.update_layout(
+            yaxis={'categoryorder': 'total ascending'},
+            xaxis_title="Silhouette Score (makin tinggi = makin baik)",
+            yaxis_title="",
+            coloraxis_showscale=False,
+            height=420
+        )
+        st.plotly_chart(fig_bar, use_container_width=True)
+
+        # Untuk TABEL tampilkan semua kombinasi
+        df_all = (
+            df_results
+            .sort_values('Silhouette Score', ascending=False)
+            .reset_index(drop=True)
+        )
+        df_all.index += 1
+        st.caption(f"📋 Menampilkan semua {len(df_all):,} kombinasi yang diuji")
+        st.dataframe(
+            df_all[['Kombinasi Indikator', 'Jumlah Indikator', 'Silhouette Score']],
+            use_container_width=True,
+            height=400  # scroll kalau banyak
+        )
